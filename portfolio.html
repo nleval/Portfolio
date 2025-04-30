@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Noah Léval</title>
+  <link rel="stylesheet" href="portfolio.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header id="header">
+    <h1>Noah Léval</h1>
+    <p>Etudiant en BUT informatique</p>
+    <div class="nav-buttons">
+      <a href="#about" class="btn">A propos</a>
+      <a href="#projets" class="btn">Voir mes projets</a>
+      <a href="#contact" class="btn">Me contacter</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>À propos</h2>
+    <div class="about-content">
+      <div>
+        <p>Enthousiasmé par les nouvelles technologies et l'innovation, je suis actuellement à la recherche d'un stage afin d'approfondir mes compétences dans le domaine de l'informatique et d'explorer le monde professionnel. Au cours de mes études, j'ai eu l'occasion de participer à divers projets techniques, où j'ai développé des applications web en utilisant HTML, CSS, PHP et JavaScript, tout en ayant une expérience pratique dans la gestion de bases de données avec MySQL.</p>
+        <div class="skills">
+          <span>PHP</span>
+          <span>HTML/CSS</span>
+          <span>SQL</span>
+          <span>C++</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>Java</span>
+          <span>Angular</span>
+          <span>Laravel</span>
+        </div>
+        <a href="fichier/LEVAL_Noah_CV.pdf" download class="btn download-btn">Télécharger mon CV</a>
+      </div>
+      <img src="fichier/image/Photo_de_profil.png" alt="Photo de profil" />
+    </div>
+  </section>  
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <h2>Projets</h2>
+    <div class="project-gallery">
+      <div class="project-thumb" 
+        data-description="Description du projet 1"
+        data-github="https://github.com/jvlatrille/Video-Home-Share">
+        <img src="fichier/image/VHS.png" alt="VHS" />
+      </div>
+
+      <div class="project-thumb" 
+        data-description="Description du projet 1"
+        data-github="https://github.com/nleval/GameVerse">
+        <img src="fichier/image/GameVerse.png" alt="GameVerse" />
+      </div>
+
+      <div class="project-thumb" 
+        data-description="Description du projet 1"
+        data-github="https://github.com/tonprofil/projet1">
+        <img src="fichier/image/projet1.png" alt="Projet 1" />
+      </div>
+
+      <div class="project-thumb" 
+        data-description="Description du projet 1"
+        data-github="https://github.com/tonprofil/projet1">
+        <img src="fichier/image/projet1.png" alt="Projet 1" />
+      </div>
+    </div>
+  
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modal-image" src="" alt="Image du projet" />
+      <p id="modal-description"></p>
+      <a id="modal-github" href="#" target="_blank" class="btn">Voir sur GitHub</a>
+    </div>
+  </div>
+
+  <!-- PARCOURS -->
+  <section id="parcours">
+    <h2>Mon parcours scolaire</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Collège Josephine Baker de Mios</h3>
+          <span class="date">2016 - 2020</span>
+          <p>Découverte des bases de l'informatique et intérêt pour la programmation.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Lycée Grand Air d'Arcachon</h3>
+          <span class="date">2020 - 2023</span>
+          <p>Baccalauréat Général avec spécialités Mathématiques et NSI.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>IUT de Bayonne – BUT Informatique</h3>
+          <span class="date">2023 - Aujourd'hui</span>
+          <p>Études supérieures orientées développement web, algorithmique, base de données, etc.</p>
+        </div>
+      </div>
+    </div>
+  </section>    
+
+  <div class="footer">
+    <p>© 2025 Noah Léval</p>
+    <div class="footer-buttons">
+      <a href="tel:+33650500068" class="btn">📞 Appeler</a>
+      <a href="mailto:noah.leval33@gmail.com" class="btn">✉️ Email</a>
+      <a href="https://github.com/nleval" target="_blank" class="btn">💻 GitHub</a>
+      <a href="https://www.linkedin.com/in/noah-léval/" target="_blank" class="btn">🔗 LinkedIn</a>
+    </div>
+  </div>  
+
+<script>
+  document.querySelectorAll('.project-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const description = thumb.getAttribute('data-description');
+      const imageSrc = thumb.querySelector('img').getAttribute('src');
+      const githubLink = thumb.getAttribute('data-github');
+
+      document.getElementById('modal-description').textContent = description;
+      document.getElementById('modal-image').src = imageSrc;
+      document.getElementById('modal-github').href = githubLink;
+
+      document.getElementById('modal').style.display = 'block';
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('modal').style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target == document.getElementById('modal')) {
+      document.getElementById('modal').style.display = 'none';
+    }
+  });
+</script>
