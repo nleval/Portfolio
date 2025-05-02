@@ -5,25 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - Noah Léval</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const profileImage = document.querySelector('.fade-in-profile');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (profileImage) {
+      observer.observe(profileImage);
+    }
+  });
+</script>
+
 <body>
   <!-- HEADER -->
   <header id="header">
-    <h1>Noah Léval</h1>
-    <p>Etudiant en BUT informatique</p>
     <div class="nav-buttons">
-      <a href="#about" class="btn">A propos</a>
-      <a href="#projets" class="btn">Voir mes projets</a>
-      <a href="#contact" class="btn">Me contacter</a>
+      <a href="#about" class="btn" data-i18n="nav_about">A propos</a>
+      <a href="#projets" class="btn" data-i18n="nav_projets">Mes projets</a>
+      <a href="#parcours" class="btn" data-i18n="nav_parcours">Mon parcours</a>
+      <button id="lang-toggle" class="btn">EN</button>
     </div>
   </header>
 
+  <!-- ACCUEIL -->
+   <section id="accueil">
+    <h2 data-i18n="accueil_nom">Noah Léval</h2>
+    <p data-i18n="accueil_bienvenue">Bienvenue sur mon portfolio !</p>
+    <a href="#about" class="scroll-down">↓</a>
+  </section>
+
   <!-- ABOUT -->
   <section id="about">
-    <h2>À propos</h2>
+    <h2 data-i18n="about_title">À propos</h2>
     <div class="about-content">
       <div>
-        <p>Enthousiasmé par les nouvelles technologies et l'innovation, je suis actuellement à la recherche d'un stage afin d'approfondir mes compétences dans le domaine de l'informatique et d'explorer le monde professionnel. Au cours de mes études, j'ai eu l'occasion de participer à divers projets techniques, où j'ai développé des applications web en utilisant HTML, CSS, PHP et JavaScript, tout en ayant une expérience pratique dans la gestion de bases de données avec MySQL.</p>
+        <p data-i18n="about_description">Enthousiasmé par les nouvelles technologies et l'innovation, je suis actuellement à la recherche d'un stage afin d'approfondir mes compétences dans le domaine de l'informatique et d'explorer le monde professionnel. Au cours de mes études, j'ai eu l'occasion de participer à divers projets techniques, où j'ai développé des applications web en utilisant HTML, CSS, PHP et JavaScript, tout en ayant une expérience pratique dans la gestion de bases de données avec MySQL.</p>
         <div class="skills">
           <span>PHP</span>
           <span>HTML/CSS</span>
@@ -35,15 +63,15 @@
           <span>Angular</span>
           <span>Laravel</span>
         </div>
-        <a href="fichier/LEVAL_Noah_CV.pdf" download class="btn download-btn">Télécharger mon CV</a>
+        <a href="fichier/LEVAL_Noah_CV.pdf" download class="btn download-btn" data-i18n="download_cv">Télécharger mon CV</a>
       </div>
-      <img src="fichier/image/Photo_de_profil.png" alt="Photo de profil" />
+      <img src="fichier/image/Photo_de_profil.png" alt="Photo de profil" class="fade-in-profile"/>
     </div>
   </section>  
 
   <!-- PROJETS -->
   <section id="projets">
-    <h2>Projets</h2>
+    <h2 data-i18n="projets_title">Projets</h2>
     <div class="project-gallery">
       <div class="project-thumb" 
         data-description="Description du projet 1"
@@ -82,44 +110,57 @@
 
   <!-- PARCOURS -->
   <section id="parcours">
-    <h2>Mon parcours scolaire</h2>
+    <h2 data-i18n="parcours_title">Mon parcours scolaire</h2>
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-content">
-          <h3>Collège Josephine Baker de Mios</h3>
+          <h3 data-i18n="parcours_college">Collège Josephine Baker de Mios</h3>
           <span class="date">2016 - 2020</span>
-          <p>Découverte des bases de l'informatique et intérêt pour la programmation.</p>
+          <p data-i18n="parcours_desc1">Découverte des bases de l'informatique et intérêt pour la programmation.</p>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-content">
-          <h3>Lycée Grand Air d'Arcachon</h3>
+          <h3 data-i18n="parcours_lycee">Lycée Grand Air d'Arcachon</h3>
           <span class="date">2020 - 2023</span>
-          <p>Baccalauréat Général avec spécialités Mathématiques et NSI.</p>
+          <p data-i18n="parcours_desc2">Baccalauréat Général avec spécialités Mathématiques et NSI.</p>
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-content">
-          <h3>IUT de Bayonne – BUT Informatique</h3>
+          <h3 data-i18n="parcours_iut">IUT de Bayonne – BUT Informatique</h3>
           <span class="date">2023 - Aujourd'hui</span>
-          <p>Études supérieures orientées développement web, algorithmique, base de données, etc.</p>
+          <p data-i18n="parcours_desc3">Études supérieures orientées développement web, algorithmique, base de données, etc.</p>
         </div>
       </div>
     </div>
   </section>    
 
+  <!-- FOOTER -->
   <div class="footer">
-    <p>© 2025 Noah Léval</p>
+    <h3 data-i18n="footer_contact">Me contacter</h3>
     <div class="footer-buttons">
-      <a href="tel:+33650500068" class="btn">📞 Appeler</a>
-      <a href="mailto:noah.leval33@gmail.com" class="btn">✉️ Email</a>
-      <a href="https://github.com/nleval" target="_blank" class="btn">💻 GitHub</a>
-      <a href="https://www.linkedin.com/in/noah-léval/" target="_blank" class="btn">🔗 LinkedIn</a>
-    </div>
-  </div>  
+      <a href="tel:+33650500068" class="social-button phone">
+        <i class="fas fa-phone-alt"></i> <!-- Icône téléphone -->
+      </a>
 
+      <a href="mailto:noah.leval33@gmail.com" class="social-button mail">
+        <i class="fas fa-envelope"></i> <!-- Icône email -->
+      </a>
+
+      <a href="https://github.com/nleval" target="_blank" class="social-button github">
+        <i class="fab fa-github"></i> <!-- Icône GitHub -->
+      </a>
+
+      <a href="https://www.linkedin.com/in/noah-léval/" target="_blank" class="social-button LinkedIn">
+        <i class="fab fa-linkedin"></i> <!-- Icône LinkedIn -->
+      </a>
+    </div>
+  </div>
+  
+<!-- Script pour le modal -->
 <script>
   document.querySelectorAll('.project-thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
@@ -144,4 +185,38 @@
       document.getElementById('modal').style.display = 'none';
     }
   });
+</script>
+
+<!-- Script pour les langues-->
+<script>
+  let translations = {};
+  let currentLang = 'fr';
+
+  function translatePage(lang) {
+    if (!translations[lang]) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+  }
+
+  async function loadTranslations() {
+    try {
+      const res = await fetch('translations.json');
+      translations = await res.json();
+      translatePage(currentLang);
+    } catch (error) {
+      console.error("Erreur lors du chargement des traductions:", error);
+    }
+  }
+
+  document.getElementById('lang-toggle').addEventListener('click', () => {
+    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+    translatePage(currentLang);
+    document.getElementById('lang-toggle').textContent = currentLang === 'fr' ? 'EN' : 'FR';
+  });
+
+  loadTranslations();
 </script>

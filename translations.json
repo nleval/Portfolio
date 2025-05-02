@@ -1,0 +1,41 @@
+{
+    "fr": {
+      "accueil_nom": "Noah Léval",
+      "accueil_bienvenue": "Bienvenue sur mon portfolio !",
+      "nav_about": "À propos",
+      "nav_projets": "Mes projets",
+      "nav_parcours": "Mon parcours",
+      "about_title": "À propos de moi",
+      "about_description": "Enthousiasmé par les nouvelles technologies et l'innovation, je suis actuellement à la recherche d'un stage afin d'approfondir mes compétences dans le domaine de l'informatique et d'explorer le monde professionnel. Au cours de mes études, j'ai eu l'occasion de participer à divers projets techniques, où j'ai développé des applications web en utilisant HTML, CSS, PHP et JavaScript, tout en ayant une expérience pratique dans la gestion de bases de données avec MySQL.",
+      "download_cv": "Télécharger mon CV",
+      "projets_title": "Projets",
+      "parcours_title": "Mon parcours scolaire",
+      "parcours_college": "Collège Joséphine Baker de Mios",
+      "parcours_lycee": "Lycée Grand Air d'Arcachon",
+      "parcours_iut": "IUT de Bayonne – BUT Informatique",
+      "parcours_desc1": "Découverte des bases de l'informatique et intérêt pour la programmation.",
+      "parcours_desc2": "Baccalauréat Général avec spécialités Mathématiques et NSI.",
+      "parcours_desc3": "Études supérieures orientées développement web, algorithmique, base de données, etc.",
+      "footer_contact": "Me contacter"
+    },
+    "en": {
+      "accueil_nom": "Noah Léval",
+      "accueil_bienvenue": "Welcome to my portfolio!",
+      "nav_about": "About",
+      "nav_projets": "Projects",
+      "nav_parcours": "My journey",
+      "about_title": "About me",
+      "about_description": "Excited about technology and innovation, I am currently looking for an internship to strengthen my skills in IT and explore the professional world. During my studies, I have worked on various technical projects involving web development using HTML, CSS, PHP, JavaScript and managing databases with MySQL.",
+      "download_cv": "Download my CV",
+      "projets_title": "Projects",
+      "parcours_title": "My academic journey",
+      "parcours_college": "Joséphine Baker Middle School - Mios",
+      "parcours_lycee": "Grand Air High School - Arcachon",
+      "parcours_iut": "IUT of Bayonne – Bachelor of Computer Science",
+      "parcours_desc1": "Discovery of computing fundamentals and growing interest in programming.",
+      "parcours_desc2": "High School Diploma with Math and Computer Science specialties.",
+      "parcours_desc3": "Advanced studies in web development, algorithms, databases, and more.",
+      "footer_contact": "Contact me"
+    }
+  }
+  
