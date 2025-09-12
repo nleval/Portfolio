@@ -1,3 +1,27 @@
+// Gestion du mode clair/sombre
+function setupThemeToggle() {
+  const themeBtn = document.getElementById('theme-toggle');
+  const icon = themeBtn.querySelector('i');
+  // Appliquer le thème stocké si présent
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-theme');
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  }
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    const isLight = document.body.classList.contains('light-theme');
+    if (isLight) {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+      localStorage.setItem('theme', 'light');
+    } else {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+}
 
 // Effet fade-in sur la photo de profil
 function setupProfileFadeIn() {
@@ -87,4 +111,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupProjectsFadeIn();
   setupProjectModal();
   setupLangToggle();
+  setupThemeToggle();
 });
