@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - Noah Léval</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="main.js"></script>
   <!-- Styles déplacés dans style.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -55,30 +56,35 @@
   <section id="projets">
     <h2 data-i18n="projets_title">Projets</h2>
     <div class="project-gallery">
-      <div class="project-thumb" 
+  <div class="project-thumb fade-in-project" 
         data-description="Description du projet 1"
         data-github="https://github.com/jvlatrille/Video-Home-Share">
         <img src="fichier/image/VHS.png" alt="VHS" />
+        <div class="project-overlay">VHS</div>
       </div>
 
-      <div class="project-thumb" 
+  <div class="project-thumb fade-in-project" 
         data-description="Description du projet 1"
         data-github="https://github.com/nleval/GameVerse">
         <img src="fichier/image/GameVerse.png" alt="GameVerse" />
+        <div class="project-overlay">GameVerse</div>
       </div>
 
-      <div class="project-thumb" 
+  <div class="project-thumb fade-in-project" 
         data-description="Description du projet 1"
         data-github="https://github.com/tonprofil/projet1">
         <img src="fichier/image/projet1.png" alt="Projet 1" />
+        <div class="project-overlay">Projet 1</div>
       </div>
 
-      <div class="project-thumb" 
+  <div class="project-thumb fade-in-project" 
         data-description="Description du projet 1"
         data-github="https://github.com/tonprofil/projet1">
         <img src="fichier/image/projet1.png" alt="Projet 1" />
+        <div class="project-overlay">Projet 1</div>
       </div>
     </div>
+  </section>
   
   <!-- MODAL -->
   <div id="modal" class="modal">
@@ -93,7 +99,7 @@
   <!-- COMPETENCES -->
   <section id="competences">
     <h2 data-i18n="competence_title">Compétences</h2>
-    <div class="skills-bars" style="max-width: 600px; margin: 0 auto;">
+  <div class="skills-bars">
       <div style="margin-bottom: 18px;">
         <span style="font-weight:bold;">HTML/CSS</span>
         <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
@@ -221,82 +227,5 @@
     </div>
   </div>
 
-<!-- Script pour la photo de profil (effet) -->
- <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const profileImage = document.querySelector('.fade-in-profile');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    if (profileImage) {
-      observer.observe(profileImage);
-    }
-  });
-</script>
-  
-<!-- Script pour le modal -->
-<script>
-  document.querySelectorAll('.project-thumb').forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const description = thumb.getAttribute('data-description');
-      const imageSrc = thumb.querySelector('img').getAttribute('src');
-      const githubLink = thumb.getAttribute('data-github');
-
-      document.getElementById('modal-description').textContent = description;
-      document.getElementById('modal-image').src = imageSrc;
-      document.getElementById('modal-github').href = githubLink;
-
-      document.getElementById('modal').style.display = 'block';
-    });
-  });
-
-  document.querySelector('.close').addEventListener('click', () => {
-    document.getElementById('modal').style.display = 'none';
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target == document.getElementById('modal')) {
-      document.getElementById('modal').style.display = 'none';
-    }
-  });
-</script>
-
-<!-- Script pour les langues-->
-<script>
-let currentLang = 'fr';
-let translations = {};
-
-function updateTranslations(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
-  // Mettre à jour le bouton
-  const btn = document.getElementById('lang-toggle');
-  if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
-}
-
-// Charger le fichier de traduction et n'appliquer la traduction qu'après le chargement
-fetch('translations.json')
-  .then(response => response.json())
-  .then(data => {
-    translations = data;
-    updateTranslations(currentLang);
-    // Ajouter l'écouteur de clic seulement après le chargement
-    document.getElementById('lang-toggle').addEventListener('click', () => {
-      currentLang = currentLang === 'fr' ? 'en' : 'fr';
-      updateTranslations(currentLang);
-    });
-  });
-</script>
 
