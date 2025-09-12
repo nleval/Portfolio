@@ -5,28 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - Noah Léval</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Styles déplacés dans style.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const profileImage = document.querySelector('.fade-in-profile');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    if (profileImage) {
-      observer.observe(profileImage);
-    }
-  });
-</script>
 
 <body>
   <!-- HEADER -->
@@ -34,14 +15,15 @@
     <div class="nav-buttons">
       <a href="#about" class="btn" data-i18n="nav_about">A propos</a>
       <a href="#projets" class="btn" data-i18n="nav_projets">Mes projets</a>
+      <a href="#competences" class="btn" data-i18n="nav_competences">Mes competences</a>
       <a href="#parcours" class="btn" data-i18n="nav_parcours">Mon parcours</a>
-      <button id="lang-toggle" class="btn">EN</button>
     </div>
+    <button id="lang-toggle" class="btn fixed-lang-btn">EN</button>
   </header>
 
   <!-- ACCUEIL -->
    <section id="accueil">
-    <h2 data-i18n="accueil_nom">Noah Léval</h2>
+    <h2>Noah Léval</h2>
     <p data-i18n="accueil_bienvenue">Bienvenue sur mon portfolio !</p>
     <a href="#about" class="scroll-down">↓</a>
   </section>
@@ -108,6 +90,85 @@
     </div>
   </div>
 
+  <!-- COMPETENCES -->
+  <section id="competences">
+    <h2 data-i18n="competence_title">Compétences</h2>
+    <div class="skills-bars" style="max-width: 600px; margin: 0 auto;">
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">HTML/CSS</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:95%; background:#4caf50; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">95%</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">JavaScript</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:85%; background:#2196f3; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">85%</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">PHP</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:80%; background:#ff9800; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">80%</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">SQL</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:75%; background:#9c27b0; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">75%</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">Python</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:70%; background:#f44336; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">70%</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">Java</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:65%; background:#795548; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">65%</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">C++</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:60%; background:#607d8b; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">60%</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">Angular</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:50%; background:#e91e63; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">50%</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-bottom: 18px;">
+        <span style="font-weight:bold;">Laravel</span>
+        <div style="background:#eee; border-radius:8px; overflow:hidden; height:18px; margin-top:4px; position:relative;">
+          <div style="width:45%; background:#c62828; height:100%; transition:width 1s; position:relative; display:flex; align-items:center;">
+            <span style="position:absolute; right:8px; color:#fff; font-size:13px; font-weight:bold;">45%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PARCOURS -->
   <section id="parcours">
     <h2 data-i18n="parcours_title">Mon parcours scolaire</h2>
@@ -131,7 +192,7 @@
       <div class="timeline-item">
         <div class="timeline-content">
           <h3 data-i18n="parcours_iut">IUT de Bayonne – BUT Informatique</h3>
-          <span class="date">2023 - Aujourd'hui</span>
+          <span class="date" data-i18n="parcours_date3">2023 - Aujourd'hui</span>
           <p data-i18n="parcours_desc3">Études supérieures orientées développement web, algorithmique, base de données, etc.</p>
         </div>
       </div>
@@ -159,6 +220,27 @@
       </a>
     </div>
   </div>
+
+<!-- Script pour la photo de profil (effet) -->
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const profileImage = document.querySelector('.fade-in-profile');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (profileImage) {
+      observer.observe(profileImage);
+    }
+  });
+</script>
   
 <!-- Script pour le modal -->
 <script>
@@ -189,34 +271,32 @@
 
 <!-- Script pour les langues-->
 <script>
-  let translations = {};
-  let currentLang = 'fr';
+let currentLang = 'fr';
+let translations = {};
 
-  function translatePage(lang) {
-    if (!translations[lang]) return;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang][key]) {
-        el.textContent = translations[lang][key];
-      }
-    });
-  }
-
-  async function loadTranslations() {
-    try {
-      const res = await fetch('translations.json');
-      translations = await res.json();
-      translatePage(currentLang);
-    } catch (error) {
-      console.error("Erreur lors du chargement des traductions:", error);
+function updateTranslations(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
     }
-  }
-
-  document.getElementById('lang-toggle').addEventListener('click', () => {
-    currentLang = currentLang === 'fr' ? 'en' : 'fr';
-    translatePage(currentLang);
-    document.getElementById('lang-toggle').textContent = currentLang === 'fr' ? 'EN' : 'FR';
   });
+  // Mettre à jour le bouton
+  const btn = document.getElementById('lang-toggle');
+  if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
+}
 
-  loadTranslations();
+// Charger le fichier de traduction et n'appliquer la traduction qu'après le chargement
+fetch('translations.json')
+  .then(response => response.json())
+  .then(data => {
+    translations = data;
+    updateTranslations(currentLang);
+    // Ajouter l'écouteur de clic seulement après le chargement
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      currentLang = currentLang === 'fr' ? 'en' : 'fr';
+      updateTranslations(currentLang);
+    });
+  });
 </script>
+
