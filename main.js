@@ -105,6 +105,58 @@ function setupLangToggle() {
     });
 }
 
+// Séquence du Konami Code : ↑ ↑ ↓ ↓ ← → ← → B A Entrée
+const konamiCode = [
+  "ArrowUp","ArrowUp","ArrowDown","ArrowDown",
+  "ArrowLeft","ArrowRight","ArrowLeft","ArrowRight",
+  "b","a","Enter"
+];
+
+let position = 0;
+
+document.addEventListener("keydown", function(event) {
+  console.log(event.key); // Pour le débogage
+  if (event.key === konamiCode[position]) {
+    position++;
+    if (position === konamiCode.length) {
+      // Succès : redirection
+      window.location.href = "secret/secret.html";
+      position = 0;
+    }
+  } else {
+    // Reset si la touche n'est pas la bonne
+    position = 0;
+  }
+});
+
+
+// Animation des barres de compétences
+function setupSkillsAnimation() {
+  const skillBars = document.querySelectorAll('.skills-bars > div > div > div');
+
+  skillBars.forEach(bar => {
+    bar.setAttribute('data-width', bar.style.width); // stocke la largeur cible
+    bar.style.width = '0%'; // initialise à 0
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animation de remplissage
+          setTimeout(() => {
+            bar.style.width = bar.getAttribute('data-width');
+          }, 100); // léger délai pour style plus doux
+        } else {
+          // Reset si sortie de la vue
+          bar.style.width = '0%';
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(bar); // observe chaque barre individuellement
+  });
+}
+
+
 // Initialisation globale
 document.addEventListener('DOMContentLoaded', () => {
   setupProfileFadeIn();
@@ -112,4 +164,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupProjectModal();
   setupLangToggle();
   setupThemeToggle();
+  setupSkillsAnimation();
 });
